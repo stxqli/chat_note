@@ -35,63 +35,22 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Future<void> _pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
-    if (result != null) {
-      setState(() {
-        _messages.add('File: ${result.files.single.name}');
-      });
-    }
+    // TODO: Implement file picking
   }
 
   Future<void> _pickImage() async {
-    try {
-      final ImagePicker _picker = ImagePicker();
-      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-      if (image != null) {
-        setState(() {
-          _messages.add('Image: ${image.name}');
-        });
-      }
-    } catch (e) {
-      print('Error picking image: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to pick image: $e')),
-      );
-    }
+    // TODO: Implement image picking
   }
 
   Future<void> _recordVoice() async {
-    if (_isRecording) {
-      await _recorder.stopRecorder();
-      setState(() {
-        _isRecording = false;
-        _messages.add('Voice message recorded');
-      });
-    } else {
-      try {
-        var status = await Permission.microphone.request();
-        if (status != PermissionStatus.granted) {
-          throw RecordingPermissionException('Microphone permission not granted');
-        }
-        await _recorder.openAudioSession();
-        await _recorder.startRecorder(toFile: 'voice_message.aac');
-        setState(() {
-          _isRecording = true;
-        });
-      } catch (e) {
-        print('Error starting recorder: $e');
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to start recorder: $e')),
-        );
-      }
-    }
+    // TODO: Implement voice recording
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat'),
+        title: const Text('Chat 2'),
       ),
       body: Column(
         children: <Widget>[

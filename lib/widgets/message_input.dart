@@ -8,7 +8,7 @@ class MessageInput extends StatelessWidget {
   final VoidCallback onRecordVoice;
   final bool isRecording;
 
-  MessageInput({
+  const MessageInput({super.key, 
     required this.controller,
     required this.onSend,
     required this.onPickFile,
@@ -24,7 +24,7 @@ class MessageInput extends StatelessWidget {
       child: Row(
         children: <Widget>[
           PopupMenuButton<int>(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onSelected: (value) {
               switch (value) {
                 case 0:
@@ -39,7 +39,7 @@ class MessageInput extends StatelessWidget {
               }
             },
             itemBuilder: (context) => [
-              PopupMenuItem(
+              const PopupMenuItem(
                 value: 0,
                 child: Row(
                   children: [
@@ -49,7 +49,7 @@ class MessageInput extends StatelessWidget {
                   ],
                 ),
               ),
-              PopupMenuItem(
+              const PopupMenuItem(
                 value: 1,
                 child: Row(
                   children: [
@@ -64,7 +64,7 @@ class MessageInput extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(isRecording ? Icons.stop : Icons.mic),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(isRecording ? 'Stop Recording' : 'Record Voice'),
                   ],
                 ),
@@ -74,13 +74,13 @@ class MessageInput extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Enter message',
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
             onPressed: onSend,
           ),
         ],

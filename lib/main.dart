@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'screens/chat_page.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -28,13 +32,13 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = Placeholder();
+        page = const Placeholder();
         break;
       case 1:
-        page = Placeholder();
+        page = const Placeholder();
         break;
       case 2:
-        page = ChatPage();
+        page = const ChatPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
